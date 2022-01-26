@@ -291,7 +291,37 @@ graphs). Using these three graphs to discuss which of these three
 categorical variables seems to be contributing more to these two peaks
 and explain your reasoning.
 
-**Response**:
+``` r
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = species)) +
+  geom_jitter()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_species-1.png)<!-- -->
+
+``` r
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = sex)) +
+  geom_jitter()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_sex-1.png)<!-- -->
+
+``` r
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = island)) +
+  geom_jitter()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_island-1.png)<!-- -->
+
+**Response**: Sex is the most appropriate variable that can be used in
+describing the changes in bill\_length against density. This is because,
+the graph of bill\_length against sex shows almost the same trend (in
+distribution) as the histogram and even the curve on the histogram.
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
 meaningful commit message), and push to your GitHub repo. Go to GitHub
