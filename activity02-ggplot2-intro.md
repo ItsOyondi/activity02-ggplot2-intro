@@ -232,12 +232,38 @@ default white coloring. In the code chunk below, explore different
 methods to try to create this plot. A hint, all `geom_*` have a
 `mapping` argument.
 
-In the above code chunk, continue to play around with having the
-aesthetics mapped in the different layers. For example, how does having
-all of them mapped in the `ggplot` call compared to having these instead
-mapped in the `geom_boxplot` layer? Comment on what you notice.
+``` r
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, position = "jitter")) +
+  geom_boxplot() + geom_jitter(aes(color = species)) #added the color aesthetic to the jitters only
+```
 
-**Response**:
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/jitter-colored-only-1.png)<!-- -->
+
+In the above code chunk, continue to play around with having the
+aesthetics mapped in the different layers.
+
+``` r
+ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = species, position = "jitter")) 
+```
+
+    ## Warning: Ignoring unknown aesthetics: position
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/jitter-testing-1.png)<!-- -->
+
+For example, how does having all of them mapped in the `ggplot` call
+compared to having these instead mapped in the `geom_boxplot` layer?
+Comment on what you notice.
+
+**Response**: Mapping all the arguments in ggplot call alone displays a
+blank chart. However, when adding layers such as geom\_point(), a
+scatterplot is created but the distribution presented in the form of a
+line.
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
 meaningful commit message), and push to your GitHub repo. Go to GitHub

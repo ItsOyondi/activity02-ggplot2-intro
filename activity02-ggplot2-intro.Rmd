@@ -179,14 +179,20 @@ In the code chunk below, explore different methods to try to create this plot.
 A hint, all `geom_*` have a `mapping` argument.
 
 ```{r jitter-colored-only}
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, position = "jitter")) +
+  geom_boxplot() + geom_jitter(aes(color = species)) #added the color aesthetic to the jitters only
 
 ```
 
 In the above code chunk, continue to play around with having the aesthetics mapped in the different layers.
+```{r jitter-testing}
+ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = species, position = "jitter")) 
+```
+
 For example, how does having all of them mapped in the `ggplot` call compared to having these instead mapped in the `geom_boxplot` layer?
 Comment on what you notice.
 
-**Response**:
+**Response**: Mapping all the arguments in ggplot call alone displays a blank chart. However, when adding layers such as geom_point(), a scatterplot is created but the distribution presented in the form of a line. 
 
 
 Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push  to your GitHub repo.
